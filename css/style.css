@@ -7,6 +7,9 @@ body {
   font-weight: 500;
   color: #070707;
 }
+body.lock{
+  overflow: hidden;
+}
 div,
 p,
 input,
@@ -455,7 +458,7 @@ input {
   .heder-link {
     font-size: 34px;
     line-height: 42px;
-    /* margin: 60px 0px 0px 0px; */
+    margin-left: 10%;
   }
   .heder-link:active {
     font-weight: 600;

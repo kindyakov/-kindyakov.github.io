@@ -1,44 +1,40 @@
-// $(document).ready(function () {
-//   $(".footer-title").click(function (event) {
-//     if ($(".footer").hasClass("one")) {
-//       $(".footer-title").not($(this)).removeClass("active");
-//       $(".footer-nav").not($(this).next()).slideUp(300);
-//     }
-//     $(this).toggleClass("active").next().slideToggle(300);
-//   });
-// });
-$(document).ready(function () {
-  $(".header-burger").click(function (event) {
-    $(".header-burger,.header-menu").toggleClass("active");
-    $("body").toggleClass("lock");
+const headerMenu = document.querySelector('.header-menu');
+const headerBurger = document.querySelector('.header-burger');
+const hederLink = document.querySelectorAll('.heder-link');
+headerBurger.addEventListener('click', function () {
+  headerBurger.classList.toggle('active');
+  headerMenu.classList.toggle('active');
+});
+hederLink.forEach(function (event) {
+  event.addEventListener('click', function () {
+    headerBurger.classList.remove('active');
+    headerMenu.classList.remove('active');
   });
 });
 $(function () {
-  let header = $("#header");
+  let header = $('#header');
   let headerH = header.height();
-  let scrollPos = $(window).scrollTop("-200px");
+  let scrollPos = $(window).scrollTop('-200px');
 
-  $(window).on("scroll load resize", function () {
+  $(window).on('scroll load resize', function () {
     introH = header.innerHeight();
     scrollPos = $(this).scrollTop();
     if (scrollPos > headerH) {
-      header.addClass("fixed");
+      header.addClass('fixed');
     } else {
-      header.removeClass("fixed");
+      header.removeClass('fixed');
     }
-
-    console.log(scrollPos);
   });
-
-  header.addClass("fixed");
+  header.addClass('fixed');
 });
+
 $(document).ready(function () {
-  $(".heder-link").click(function () {
-    $("html, body").animate(
+  $('.heder-link').click(function () {
+    $('html, body').animate(
       {
-        scrollTop: $($(this).attr("href")).offset().top + "px",
+        scrollTop: $($(this).attr('href')).offset().top + 'px',
       },
-      { duration: 800, esing: "swing" }
+      { duration: 800, esing: 'swing' }
     );
   });
 });
